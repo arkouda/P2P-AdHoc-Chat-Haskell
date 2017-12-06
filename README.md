@@ -7,11 +7,20 @@ Assumptions:
 Description:
 
 	What it does?
-	The program, allows a user to send/recieve messages to/from any other user running this program with the same ad-hoc config but a different IP within the range 192.168.1.[0-255], connected directly or indirectly to the users ad-hoc node. It also lists all the nodes within the network, running an instance of this program.
+	The program, allows a user to send/recieve messages to/from any other user running this program with the same ad-hoc config
+	but a different IP within the range 192.168.1.[0-255], connected directly or indirectly to the users ad-hoc node. It also 
+	lists all the nodes within the network, running an instance of this program.
 
 	How it does it?
 	To achieve this, we did the following:
-	- When an instance of a program is started, the program scansfor ad-hoc nodes (with same config) in its range (neighbours) and sends each of them a copy of its list of IP's of known nodes in the network (which only consists of the its IP at the start). The message also contains a list which is used to track the path. The neighbours continue this process ahead and keep adding their corresponding IP's to the list(s) until no nodes exist that are not in the already known IP list. After this, the path is traced back to the source and an updated list is returned. This is done for all neighbours and ensures that all nodes have been visited. The source then collects this data, removes duplicates from it and finally broadcasts it to all nodes in a BFS like manner, each node updates its 'online nodes list'. We named this procedure as '2Blast Protocol'. This essentially acheives data synchronisation of the known nodes in the network, but is not limited to it.
+	- When an instance of a program is started, the program scansfor ad-hoc nodes (with same config) in its range (neighbours) 
+	and sends each of them a copy of its list of IP's of known nodes in the network (which only consists of the its IP at the 
+	start). The message also contains a list which is used to track the path. The neighbours continue this process ahead and 
+	keep adding their corresponding IP's to the list(s) until no nodes exist that are not in the already known IP list. After 
+	this, the path is traced back to the source and an updated list is returned. This is done for all neighbours and ensures 
+	that all nodes have been visited. The source then collects this data, removes duplicates from it and finally broadcasts it
+	to all nodes in a BFS like manner, each node updates its 'online nodes list'. We named this procedure as '2Blast Protocol'.
+	This essentially acheives data synchronisation of the known nodes in the network, but is not limited to it.
 	- To send messeges, we implemented a version of DFS to find the receiver node.
 
 Types of messages:
