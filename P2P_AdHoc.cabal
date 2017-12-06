@@ -2,11 +2,11 @@ name:                P2P_AdHoc
 version:             0.1.0.0
 -- synopsis:
 -- description:
-homepage:            https://github.com/githubuser/#readme
+homepage:            https://github.com/arkouda/#readme
 license:             BSD3
 license-file:        LICENSE
 author:              Angad&Akash
-maintainer:          example@example.com
+maintainer:          eburnwat3r@gmail.com
 copyright:           2017 Angad&Akash
 category:            Web
 build-type:          Simple
@@ -28,7 +28,7 @@ executable RoboGame-exe
                      , process
                      , brick
                      , mtl                   
-                     , Whatsapp
+                     , P2P_AdHoc
                      , network
                      , microlens
                      , microlens-th
@@ -40,10 +40,10 @@ test-suite RoboGame-test
   hs-source-dirs:      test
   main-is:             Spec.hs
   build-depends:       base
-                     , Whatsapp
+                     , P2P_AdHoc
   ghc-options:         -threaded -rtsopts -with-rtsopts=-N
   default-language:    Haskell2010
 
 source-repository head
   type:     git
-  location: https://github.com/githubuser/Whatsapp
+  location: https://github.com/arkouda/P2P-AdHoc-Chat-Haskell
