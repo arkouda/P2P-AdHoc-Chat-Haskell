@@ -2,7 +2,7 @@
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: a24f1faf5cad2688c55e14d54f6f15e15e36d30687543321c33ec0cad41ada2e
+-- hash: ea61f025cf1f96f5df92055c20793f2293ee088137a7dae8e629063fc8751030
 
 name:           p2pAdHocChat
 version:        0.1.0.0
@@ -27,6 +27,7 @@ source-repository head
 library
   exposed-modules:
       Lib
+      P2P_AdHoc
   other-modules:
       Paths_p2pAdHocChat
   hs-source-dirs:

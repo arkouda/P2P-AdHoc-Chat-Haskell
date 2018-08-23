@@ -140,8 +140,8 @@ waitForInput hdl = do
 initialState :: MVar [(String,String)] -> St
 initialState mVar =
   St (F.focusRing [IpAddr,MSG,Recieved])
-     (E.editor IpAddr fun (Just 1) "")
-     (E.editor MSG fun (Just 1) "")
+     (E.editor IpAddr (Just 1) "")
+     (E.editor MSG (Just 1) "")
      (L.list Recieved (Vec.fromList []) 1)
      (L.list FriendList (Vec.fromList []) 1)
      ""
@@ -209,8 +209,8 @@ appEvent st _ = M.continue st
 drawUI :: St -> [T.Widget Name]
 drawUI st = [ui]
   where
-    ip = F.withFocusRing (st^.focusRing) (E.renderEditor)  (st^.ipAddr)
-    msg1 = F.withFocusRing (st^.focusRing) (E.renderEditor) (st^.msg)
+    ip = F.withFocusRing (st^.focusRing) (E.renderEditor fun)  (st^.ipAddr)
+    msg1 = F.withFocusRing (st^.focusRing) (E.renderEditor fun) (st^.msg)
     rmsg = L.renderList listDrawElementR True (st^.recievedMsg)
     frndList = L.renderList listDrawElementF True (st^.friendList)
     ui = C.vCenter $ hBox [(C.hCenter $
